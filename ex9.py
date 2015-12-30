@@ -10,10 +10,14 @@ def censor(text, word):
     rpl_wd = "*" * lenth_wd
     result = ""
     i = 0
-    while i + lenth_wd <= len(text):
-        if text[i : i + lenth_wd] == word:
-            result = result + rpl_wd
-            i = i + lenth_wd
+    while i < len(text):
+        if i + lenth_wd <= len(text):
+            if text[i : i + lenth_wd] == word:
+                result = result + rpl_wd
+                i = i + lenth_wd
+            else:
+                result = result + text[i]
+                i = i + 1
         else:
             result = result + text[i]
             i = i + 1
